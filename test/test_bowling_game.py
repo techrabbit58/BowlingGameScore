@@ -10,6 +10,8 @@ import bowling
     ("6/ 8- -- -- -- -- -- -- -- --", 26),
     ("5/ 5/ 1- 1- 1- 1- 1- 1- 1- 1-", 34),
     ("5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 54", 144),
+    ("5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5", 150),
+    ("-- -- -- -- -- -- -- -- -- 5/ 5", 15),
 ])
 def test_score(actual_line, expected_score):
     assert bowling.score(actual_line) == expected_score
