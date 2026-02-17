@@ -1,0 +1,17 @@
+[project]
+name = "bowlinggamescore"
+version = "0.1.0"
+description = "Bowling Game Kata, but with python."
+requires-python = ">=3.14"
+dependencies = [
+    "pytest-cov>=7.0.0",
+]
+
+[tool.pytest]
+pythonpath = ["src"]
+addopts = [
+    "--import-mode=importlib",
+    "--cov=bowling",
+    "--cov-report=term-missing",
+    "-q",
+]
