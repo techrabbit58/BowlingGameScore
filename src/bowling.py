@@ -1,5 +1,7 @@
 def _frame_score(frame: str) -> tuple[int, ...]:
     frame = frame.replace("-", "0")
+    if frame == "X":
+        return 10,
     first = int(frame[0])
     if frame.endswith("/"):
         second = 10 - first
@@ -18,6 +20,10 @@ def score(line: str) -> int:
             break
         if frame.endswith("/"):  # spare
             total_score += 10 + _frame_score(frames[i + 1])[0]
+        elif frame == "X":
+            bonus1 = _frame_score(frames[i + 1])
+            bonus2 = _frame_score(frames[i + 2])[0] if len(bonus1) == 1 else bonus1[1]
+            total_score += 10 + bonus1[0] + bonus2
         else:
             total_score += sum(_frame_score(frame))
     return total_score

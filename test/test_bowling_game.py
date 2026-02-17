@@ -12,6 +12,12 @@ import bowling
     ("5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 54", 144),
     ("5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5", 150),
     ("-- -- -- -- -- -- -- -- -- 5/ 5", 15),
+    ("X 81 -- -- -- -- -- -- -- --", 28),
+    ("X 8/ 12 -- -- -- -- -- -- --", 34),
+    ("X X X X X X X X X 12", 247),
+    ("X 5/ X 5/ X 5/ X 5/ X 5/ X", 200),
+    ("5/ X 5/ X 5/ X 5/ X 5/ X 5/", 200),
+    ("X X X X X X X X X X X X", 300),
 ])
 def test_score(actual_line, expected_score):
     assert bowling.score(actual_line) == expected_score
