@@ -16,14 +16,16 @@ def score(line: str) -> int:
     total_score = 0
     frames = line.split()
     for i, frame in enumerate(frames):
-        if i > 9:
+        if i >= 10:
             break
         if frame.endswith("/"):  # spare
-            total_score += 10 + _frame_score(frames[i + 1])[0]
-        elif frame == "X":
-            bonus1 = _frame_score(frames[i + 1])
-            bonus2 = _frame_score(frames[i + 2])[0] if len(bonus1) == 1 else bonus1[1]
-            total_score += 10 + bonus1[0] + bonus2
+            bonus_roll = _frame_score(frames[i + 1])
+            total_score += 10 + bonus_roll[0]
+        elif frame == "X":  # strike
+            bonus_roll_1 = _frame_score(frames[i + 1])
+            bonus_roll_2 = _frame_score(frames[i + 2])[0] \
+                if len(bonus_roll_1) == 1 else bonus_roll_1[1]
+            total_score += 10 + bonus_roll_1[0] + bonus_roll_2
         else:
             total_score += sum(_frame_score(frame))
     return total_score
